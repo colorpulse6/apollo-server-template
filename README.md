@@ -1,6 +1,6 @@
 ## Description
 
-- A working template for an Apollo server working with GraphQL using Sequelize ORM.
+- A working template for an Apollo server working with GraphQL using Sequelize ORM to get started with queries and mutations in GraphQL
 
 ## Run Server
 
