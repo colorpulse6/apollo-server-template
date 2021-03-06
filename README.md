@@ -10,8 +10,8 @@ nodemon server.js
 
 ## Migrate DB
 
-- <sequelize db:migrate>
+- "sequelize db:migrate"
 
 ## Generate models
 
-    - ex. <sequelize model:generate --name User --attributes username:string,email:string,password:string>
+    - ex. "sequelize model:generate --name User --attributes username:string,email:string,password:string"
