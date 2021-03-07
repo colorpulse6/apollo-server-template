@@ -1,10 +1,18 @@
 const express = require("express");
+const cors = require("cors");
+
 const { ApolloServer } = require("apollo-server-express");
 
 const schema = require("./data/schema");
 // create our express app
 const app = express();
 
+const corsOptions = {
+  origin: "http://localhost:8080",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 const jwt = require("express-jwt");
 require("dotenv").config();
 
@@ -16,6 +24,7 @@ const auth = jwt({
 });
 
 app.use(auth);
+
 // graphql endpoint
 const server = new ApolloServer({
   schema,
@@ -26,17 +35,6 @@ const server = new ApolloServer({
 });
 server.applyMiddleware({ app });
 
-// app.use(
-//   "/api",
-//   bodyParser.json(),
-//   auth,
-//   graphqlExpress((req) => ({
-//     schema,
-//     context: {
-//       user: req.user,
-//     },
-//   }))
-// );
 const PORT = 4000;
 
 app.listen(PORT, () => {
